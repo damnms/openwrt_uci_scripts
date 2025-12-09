@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Neue udpxy-Konfiguration setzen
+uci set udpxy.@udpxy[0]=udpxy
+uci set udpxy.@udpxy[0].disabled='0'
+uci set udpxy.@udpxy[0].respawn='1'
+uci set udpxy.@udpxy[0].status='1'
+uci set udpxy.@udpxy[0].bind='0.0.0.0'
+uci set udpxy.@udpxy[0].port='4022'
+uci set udpxy.@udpxy[0].source_network='wan'
+uci set udpxy.@udpxy[0].source='sfp-wan'
+
+uci commit udpxy
+
+exit 0
